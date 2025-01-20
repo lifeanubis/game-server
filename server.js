@@ -8,16 +8,11 @@ const server = http.createServer(app) // Create an HTTP server
 const score = []
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // Replace with your client URL
+    origin: "https://duck-hunt-xd.netlify.app/", // Replace with your client URL
     methods: ["GET", "POST"],
   },
 })
 
-const calculateScore = (msg) => {
-  // let tempScore=0
-}
-
-// Handle client connections
 io.on("connection", (socket) => {
   console.log("A user connected:", socket.id)
 
@@ -41,7 +36,11 @@ io.on("connection", (socket) => {
 })
 
 // Start the server
-const PORT = 4000
+// const PORT = 4000
+// server.listen(PORT, () => {
+//   console.log(`Socket.IO server running on http://localhost:${PORT}`)
+// })
+const PORT = process.env.PORT || 4000
 server.listen(PORT, () => {
-  console.log(`Socket.IO server running on http://localhost:${PORT}`)
+  console.log(`Socket.IO server running on port ${PORT}`)
 })
