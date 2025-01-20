@@ -1,0 +1,18 @@
+{
+  "name": "socket-be",
+  "version": "1.0.0",
+  "description": "backend service for socket.io",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "test socket",
+    "start": "nodemon"
+  },
+  "author": "shrey",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9",
+    "socket.io": "^4.8.1"
+  }
+}
