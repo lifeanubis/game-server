@@ -8,7 +8,7 @@ const server = http.createServer(app) // Create an HTTP server
 const score = []
 const io = new Server(server, {
   cors: {
-    origin: "https://duck-hunt-xd.netlify.app/", // Replace with your client URL
+    origin: "*",
     methods: ["GET", "POST"],
   },
 })
