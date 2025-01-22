@@ -13,14 +13,18 @@ const io = new Server(server, {
 })
 
 io.on("connection", (socket) => {
-  console.log("A user connected:", socket.id)
+  // console.log("A user connected:", socket.id)
 
   socket.on("add_player", (msg) => {
-    console.log("Message received:", msg)
+    // console.log("Message received:", msg)
     io.emit("add_player", msg)
   })
+  socket.on("chats", (msg) => {
+    socket.join(msg?.room_name)
+    io.to(msg?.room_name).emit("chats", msg)
+  })
   socket.on("hit", (msg) => {
-    console.log("hit achieved by:", msg)
+    // console.log("hit achieved by:", msg)
     io.emit("hit", msg)
   })
   socket.on("signal", (data) => {
